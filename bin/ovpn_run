@@ -85,6 +85,8 @@ if [ -r "$OPENVPN/crl.pem" ]; then
     addArg "--crl-verify" "$OPENVPN/crl.pem"
 fi
 
+addArg "--duplicate-cn"
+
 ip -6 route show default 2>/dev/null
 if [ $? = 0 ]; then
     echo "Enabling IPv6 Forwarding"
